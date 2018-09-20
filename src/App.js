@@ -145,7 +145,7 @@ class App extends Component {
       <React.Fragment>
         <nav className="nav">
           <div className="nav__logo">
-            Logo
+            MyBPC
           </div>
           <ul className="nav__list">
             <li className="nav__item"><Link to="/">Strona główna</Link></li>

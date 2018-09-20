@@ -156,6 +156,11 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .nav__logo {
+    padding-left: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3a5683; }
   .nav__list {
     list-style-type: none;
     margin-bottom: 0; }
@@ -6503,3 +6508,5 @@ a.text-dark:hover, a.text-dark:focus {
     padding: 0.5rem 0 0 0;
     margin-bottom: 1rem;
     border-bottom: 1px solid #3a5683; }
+    .newest-companies__item:hover {
+      cursor: pointer; }
