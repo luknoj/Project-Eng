@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 const URL = 'https://api-v3.mojepanstwo.pl/dane/krs_podmioty.json'
 
@@ -9,16 +10,15 @@ constructor(props){
 
   this.state = {
     newestComapnies: null,
-    newestComapniesCount: null
+    newestComapniesCount: null,
+    redirect: false,
+    choosedId: null,
   }
 }
 
   async componentDidMount(){
     try {
       const companies = await axios.get(URL + '?conditions[date]=[2018-08-01 TO 2018-08-30]')
-  
-      console.log(companies)
-    
       this.setState({ 
         newestComapnies: companies.data.Dataobject,
         newestComapniesCount:companies.data.Count,
@@ -33,8 +33,13 @@ constructor(props){
 
     const companies = newestComapnies.map((company, index) => {
       return (
-        <div className="col-3">
-          <div className="newest-companies__item col-12">
+        <div className="col-3" key={company.id}>
+          <div className="newest-companies__item col-12" onClick={() => {
+            this.props.newSearch(company.id)            
+            this.props.routeProps.history.push({
+              pathname:"/result",
+            })
+          }}>
             <p>{company.data['krs_podmioty.nazwa_skrocona']}</p>
           </div>
         </div>
@@ -45,8 +50,14 @@ constructor(props){
   } 
 
   render(){
-    const { newestComapnies } = this.state;
-
+    const { newestComapnies, redirect, choosedId } = this.state;
+    
+    if (redirect){
+      return <Redirect to={{
+        pathname: "/result",
+        state: { choosedId }
+      }}/>
+    } else {
     return(
       <div className="content container-fluid">
         <div className="row justify-content-center info-panel">
@@ -97,8 +108,8 @@ constructor(props){
           </div>
         </div>
       </div>
-
-    )
+      )
+    }
   }
 }
 

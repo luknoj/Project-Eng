@@ -10,7 +10,6 @@ class SearchResult extends Component {
 
     this.props = {
       searchResult: {},
-      // queryValue: 
     }
   }
 
@@ -20,7 +19,7 @@ class SearchResult extends Component {
       this.setState({ searchResult: response });
     })
   }
-
+  
   renderRleationIcon = (type) => {
     switch (type) {
       case 'NADZORCA':
@@ -35,11 +34,11 @@ class SearchResult extends Component {
 
   renderRelations = (person) => {
     const { relations } = this.props
-    const relationsRender = relations.map((relation) => {
+    const relationsRender = relations.map((relation, index) => {
       if (person == relation.osoba){
         return (
           <div 
-            key={relation.firma}
+            key={`${relation.firma}${index}`}
             className="relation__element">
             <p className="relation__element--left">
               {this.renderRleationIcon(relation.stanowisko)}
@@ -59,9 +58,9 @@ class SearchResult extends Component {
     const { result, relations } = this.props
 
     if(result){
-      const management = result.reprezentacja.map( el => {
+      const management = result.reprezentacja.map( (el, index) => {
         return <Collapsible 
-            key={el.nazwa}
+            key={`${el.osoba_id}${index}`}
             person={el}
             relations={this.renderRelations(el.nazwa)}
           />
@@ -75,7 +74,7 @@ class SearchResult extends Component {
     if(this.props.result){
       var partners = this.props.result.wspolnicy.map( el => {
         return (
-          <React.Fragment>
+          <React.Fragment key={el.osoba_id}>
             <p className="heading-tertiary">Wspólnik</p>
             <div className="col-12 search-result__box">
               <div className="search-result__item">

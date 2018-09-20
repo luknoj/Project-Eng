@@ -48,12 +48,9 @@ a:hover {
   .search-result__box .relation {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: max-height 1s;
-    height: auto;
-    max-height: 600px; }
+    align-items: center; }
     .search-result__box .relation--hidden {
-      max-height: 0; }
+      display: none; }
     .search-result__box .relation__element {
       border-radius: 5px;
       display: flex;
@@ -175,6 +172,20 @@ a:hover {
       color: #3a5683; }
     .nav__item:hover {
       border-bottom: 2px solid #3a5683; }
+
+.footer {
+  background-color: #3a5683; }
+  .footer__copyright {
+    font-size: 1.8rem;
+    display: flex;
+    padding: 1rem;
+    color: #e8eef2;
+    justify-content: flex-end; }
+  .footer__logo {
+    padding: 1rem;
+    color: #e8eef2;
+    font-size: 2rem;
+    font-weight: bold; }
 
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)

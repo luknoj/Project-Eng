@@ -20,10 +20,10 @@ class Collapsible extends Component {
   render(){
     const { relations, person } = this.props;
     const { collapsed } = this.state;
-
+    
     return (
       <React.Fragment>
-        <div className="search-result__item" key={person.osoba_id}>
+        <div className="search-result__item">
           <p className="search-result__item--left">{person.funkcja}</p>
           <div className="search-result__item--right">
             <p>{person.nazwa}</p>
