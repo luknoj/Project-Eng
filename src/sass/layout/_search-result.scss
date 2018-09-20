@@ -1,0 +1,107 @@
+.search-result {
+    
+    &__heading {
+    }
+
+    &__short {
+
+    }
+
+    &__box {
+        display: flex;
+        border-radius: .5rem;
+        background-color: $color1;
+        padding: 2rem;
+        flex-direction: column;
+        align-content: center;
+        
+        &:not(:last-child()) {
+            margin-bottom: 3rem;
+        }
+
+        .relation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // overflow:hidden;
+            transition:max-height 1s;
+            height: auto;
+            max-height: 600px;
+
+            &--hidden {
+                max-height: 0;
+            }
+
+            &__element {
+                border-radius: 5px;
+                display: flex;
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: $color1;
+                width: 100%;
+
+                &--left {
+                    border-radius: 5px 0 0 5px;
+                    padding: 1rem;
+                    background-color: $color4;
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                &--right {
+                    border-radius: 0px 5px 5px 0px;
+                    padding: 1rem;
+                    flex: 8;
+                    background-color: $color3;
+                }
+            }
+        }
+    }
+
+    &__map {
+        max-height: 400px;
+        
+        &--style {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+
+    &__item {
+        color: $color1;
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: row;
+
+        &--left {
+            padding: 1rem 1rem;
+            border-radius: 5px 0 0 5px;
+            background-color: $color4;
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        &--right {
+            margin-bottom: 0;
+            flex: 5;
+            padding: 1rem 3rem 1rem 1rem;
+            border-radius: 0 5px 5px 0;
+            background-color: $color3;
+            position: relative;
+
+            .expander {
+                position: absolute;
+                transform: translate(5%, -50%);
+                top: 50%;
+                right: 5%;
+            }
+        }
+        &:not(:last-child()) {
+            margin-bottom: 1rem;
+        }
+    }
+}

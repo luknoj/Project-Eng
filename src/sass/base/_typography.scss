@@ -1,0 +1,22 @@
+.heading-primary {
+    font-size: 5rem;
+    color: #fff;
+    margin-bottom: 4rem;
+
+    &--main {
+        color: $color1;
+    }
+}
+
+.heading-secondary {
+    font-size: 2.5rem;
+    color: $color3;
+    font-weight: 700;
+}
+
+.heading-tertiary {
+    font-size: 1.5rem;
+    color: $color3;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}

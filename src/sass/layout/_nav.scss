@@ -1,0 +1,32 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	&__logo {
+
+	}
+
+	&__list {
+		list-style-type: none;
+		margin-bottom: 0;	
+	}
+
+	&__item {
+		margin-right: 2rem;
+		border-bottom: 2px solid transparent;
+		color: $color3;
+		padding: 2rem 1rem;
+		display: inline-block;
+		font-size: 1.5rem;
+		font-weight: 700;
+		cursor: pointer;
+
+		a {
+			color: $color3;
+		}
+		&:hover {
+			border-bottom: 2px solid $color3;
+		}
+	}
+}
