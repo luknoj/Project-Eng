@@ -33,13 +33,16 @@ class SearchResult extends Component {
   }
 
   renderRelations = (person) => {
-    const { relations } = this.props
+    const { relations, newSearch } = this.props
+    
     const relationsRender = relations.map((relation, index) => {
       if (person == relation.osoba){
         return (
           <div 
             key={`${relation.firma}${index}`}
-            className="relation__element">
+            className="relation__element"
+            onClick={() => newSearch(relation.id_firmy)}
+          >
             <p className="relation__element--left">
               {this.renderRleationIcon(relation.stanowisko)}
               </p>
@@ -55,8 +58,8 @@ class SearchResult extends Component {
   }
 
   renderManagement = () => {
-    const { result, relations } = this.props
-
+    const { result, relations, newSearch} = this.props
+    
     if(result){
       const management = result.reprezentacja.map( (el, index) => {
         return <Collapsible 
@@ -65,7 +68,6 @@ class SearchResult extends Component {
             relations={this.renderRelations(el.nazwa)}
           />
       })
-      
         return management;
       }
     }

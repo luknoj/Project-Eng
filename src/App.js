@@ -171,7 +171,8 @@ class App extends Component {
             <SearchResult 
               routeProps={routeProps} 
               result={result} 
-              relations={relations}/>} 
+              relations={relations}
+              newSearch={this.handleNewSearch}/>} 
             />
         </Switch>
         <Footer />

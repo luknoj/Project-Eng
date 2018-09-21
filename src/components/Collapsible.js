@@ -18,7 +18,7 @@ class Collapsible extends Component {
   }
 
   render(){
-    const { relations, person } = this.props;
+    const { relations, person, newSearch } = this.props;
     const { collapsed } = this.state;
     
     return (
